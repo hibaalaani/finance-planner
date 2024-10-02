@@ -1,0 +1,7 @@
+<!-- financial_advice.html -->
+<h2>Transactions</h2>
+<ul>
+  {% for transaction in transactions %}
+    <li>{{ transaction.date }} - {{ transaction.description }}: ${{ transaction.amount }}</li>
+  {% endfor %}
+</ul>

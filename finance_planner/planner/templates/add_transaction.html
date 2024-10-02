@@ -1,0 +1,31 @@
+<!-- view_transactions.html -->
+<h2>Transactions</h2>
+<ul>
+  {% for transaction in transactions %}
+    <li>{{ transaction.date }} - {{ transaction.description }}: ${{ transaction.amount }}</li>
+  {% endfor %}
+</ul>
+
+
+
+<form method="POST">
+  {% csrf_token %}
+  <input type="text" name="query" placeholder="Enter your financial question" required>
+  <button type="submit">Get Advice</button>
+</form>
+
+{% if advice %}
+  <h3>GPT Advice:</h3>
+  <p>{{ advice }}</p>
+
+
+
+{% endif %}
+
+
+<h1>Add New Transaction</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>

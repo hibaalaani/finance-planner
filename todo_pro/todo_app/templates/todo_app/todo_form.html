@@ -1,0 +1,13 @@
+<!-- todo_app/templates/todo_app/todo_form.html -->
+
+{% extends "todo_app/base.html" %}
+
+{% block content %}
+  <h1>{% if todo %}Edit{% else %}Add{% endif %} Task</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+  <a href="{% url 'todo_list' %}">Cancel</a>
+{% endblock %}

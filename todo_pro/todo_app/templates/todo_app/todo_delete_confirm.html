@@ -1,0 +1,12 @@
+<!-- todo_app/templates/todo_app/todo_delete_confirm.html -->
+
+{% extends "todo_app/base.html" %}
+
+{% block content %}
+  <h1>Are you sure you want to delete "{{ todo.title }}"?</h1>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm</button>
+  </form>
+  <a href="{% url 'todo_list' %}">Cancel</a>
+{% endblock %}

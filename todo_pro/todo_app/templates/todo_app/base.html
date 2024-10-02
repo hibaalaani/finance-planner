@@ -1,0 +1,73 @@
+<!-- todo_app/templates/todo_app/base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App</title>
+    <!-- You can link to your CSS files with the static template tag -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Or include inline styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header, footer {
+            background: #333;
+            color: #fff;
+            padding: 1em 0;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>ToDo App</h1>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="{% url 'todo_list' %}">Home</a></li>
+                <li><a href="{% url 'todo_create' %}">Add Task</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        {% block content %}
+        <!-- Content from child templates will go here -->
+        {% endblock content %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>ToDo App &copy; {{ year }}</p>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- You can include JavaScript files with the static template tag -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- Or include inline scripts -->
+    <script>
+        const year = new Date().getFullYear();
+        document.querySelector('footer p').textContent += ` - ${year}`;
+    </script>
+</body>
+</html>

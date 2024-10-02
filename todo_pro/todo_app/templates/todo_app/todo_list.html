@@ -1,0 +1,17 @@
+<!-- todo_app/templates/todo_app/todo_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo List</title>
+</head>
+<body>
+    <h1>ToDo List</h1>
+    <ul>
+        {% for todo in todos %}
+            <li>{{ todo.title }} - {{ todo.description }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
